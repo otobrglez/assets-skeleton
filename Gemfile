@@ -4,6 +4,10 @@ gem 'rails', '3.2.9'
 gem 'jquery-rails'
 gem 'oj'
 
+# Redis
+gem 'redis'
+gem 'connection_pool'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -23,5 +27,6 @@ group :test, :development do
   gem 'factory_girl'
   gem 'jasmine'
   gem 'jasmine-spec-extras'
-  gem 'guard-jasmine-headless-webkit'
+  gem 'guard-jasmine-headless-webkit', git: 'git://github.com/johnbintz/guard-jasmine-headless-webkit.git'
+  gem 'database_cleaner'
 end
