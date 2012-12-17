@@ -10,10 +10,49 @@ body, td, th, p, input, button, select, textarea
   font-size: 20px
 
 body
-  background-color: black
-  color: white
+  background-color: white
+  color: black
 
   a
     color: white
     font-weight: bold
     text-decoration: none
+
+    &.logo
+      font-size: 110%
+
+.wrap
+  max-width: 500px
+  margin: 0 auto
+
+
+footer
+  margin-top: 20px
+  p
+    font-size: 70%
+    a
+      color: #666
+
+#container
+  margin-top: 10px
+
+ul, li
+  list-style: none
+  margin: 0px
+  padding: 0px
+
+.list
+  margin-top: 20px
+
+.list .tool
+  display: block
+  position: relative
+  .t
+    position: absolute
+    top: 0px
+    right: 0px
+    display: none
+
+.list .tool:hover
+  .t
+    display: inline-block

@@ -6,6 +6,7 @@
 #= require_tree ./libs/plugins/jquery
 #= require ./libs/underscore-min
 #= require_tree ./libs/plugins/underscore
+#= require handlebars.runtime
 #= require handlebars
 #= require ./libs/backbone-min
 #= require_tree ./libs/plugins/backbone

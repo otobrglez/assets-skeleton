@@ -1,0 +1,13 @@
+<p>List of tools that I like. <a href="#new">Add new tool.</a></p>
+
+<ul class="list">
+  {{#each tools}}
+    <li class="tool" data-id="{{attributes.id}}">
+      {{attributes.name}}
+      <div class="t">
+        <a href="#delete" class="delete">Delete</a> |
+        <a href="#edit/{{attributes.id}}">Edit</a></div>
+    </li>
+  {{/each}}
+</ul>
+

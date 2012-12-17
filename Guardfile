@@ -35,13 +35,13 @@ guard 'rspec', :all_after_pass => false do
   # watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
 end
 
-spec_location = "spec/javascripts/%s_spec"
-guard 'jasmine-headless-webkit' do
-  watch(%r{^app/views/.*\.jst$})
-  watch(%r{^public/javascripts/(.*)\.js$}) { |m| newest_js_file(spec_location % m[1]) }
-  watch(%r{^app/assets/javascripts/(.*)\.(js|coffee)$}) { |m| newest_js_file(spec_location % m[1]) }
-  watch(%r{^spec/javascripts/(.*)_spec\..*}) { |m| newest_js_file(spec_location % m[1]) }
-end
+# spec_location = "spec/javascripts/%s_spec"
+# guard 'jasmine-headless-webkit' do
+#   watch(%r{^app/views/.*\.jst$})
+#   watch(%r{^public/javascripts/(.*)\.js$}) { |m| newest_js_file(spec_location % m[1]) }
+#   watch(%r{^app/assets/javascripts/(.*)\.(js|coffee)$}) { |m| newest_js_file(spec_location % m[1]) }
+#   watch(%r{^spec/javascripts/(.*)_spec\..*}) { |m| newest_js_file(spec_location % m[1]) }
+# end
 
 guard 'livereload' do
   watch(%r{app/views/.+\.(erb|haml|slim)$})
@@ -50,4 +50,8 @@ guard 'livereload' do
   watch(%r{config/locales/.+\.yml})
   # Rails Assets Pipeline
   watch(%r{(app|vendor)(/assets/\w+/(.+\.(s[ac]ss|coffee|css|js|html))).*}) { |m| "/assets/#{m[3]}" }
+end
+
+guard :konacha do
+  watch(%r{^spec/javascripts/.+_spec(\.js|\.js\.coffee)})
 end

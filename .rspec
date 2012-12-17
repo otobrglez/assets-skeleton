@@ -1,4 +1,5 @@
 --colour
---format documentation
+--format doc
 --profile
 --drb
+--fail-fast

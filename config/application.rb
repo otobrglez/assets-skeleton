@@ -1,7 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
-# require "active_record/railtie"
+require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
@@ -13,6 +13,10 @@ if defined?(Bundler)
   Bundler.require(*Rails.groups(:assets => %w(development test)))
   # If you want your assets lazily compiled in production, use this line
   # Bundler.require(:default, :assets, Rails.env)
+end
+
+if "assets" == ENV["RAILS_GROUPS"] || ["development", "test"].include?(ENV["RAILS_ENV"]) || ENV["RAILS_ENV"].nil?
+  HandlebarsAssets::Config.template_namespace = 'JST'
 end
 
 module AssetsSkeleton
@@ -64,5 +68,7 @@ module AssetsSkeleton
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    config.assets.precompile += %w(application.css application.js)
+    config.assets.initialize_on_precompile = false
   end
 end
